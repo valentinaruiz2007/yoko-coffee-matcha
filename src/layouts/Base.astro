@@ -1,4 +1,3 @@
-
 ---
 import '../styles/global.css';
 
@@ -6,6 +5,9 @@ const {
   title = 'YOKÓ — Coffee & Matcha',
   description = 'YOKÓ Coffee & Matcha: café artesanal, matcha, brunch y repostería en un espacio acogedor donde cada taza invita a disfrutar de un momento de paz.'
 } = Astro.props;
+
+const urlPagina = new URL(Astro.url.pathname, Astro.site).href;
+const imagenOG = new URL('/og.jpg', Astro.site).href;
 
 const links = [
   { label: 'Inicio', href: '/' },
@@ -23,6 +25,26 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content={description} />
+
+    <!-- Favicon YOKÓ -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="YOKÓ" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="YOKÓ Coffee & Matcha" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={urlPagina} />
+    <meta property="og:image" content={imagenOG} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <title>{title}</title>
   </head>
   <body>
