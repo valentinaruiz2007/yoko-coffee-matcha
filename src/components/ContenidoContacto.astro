@@ -1,0 +1,167 @@
+
+---
+import { Image } from 'astro:assets';
+---
+
+<section class="contacto">
+  <div class="container contacto-grid">
+    <div class="contacto-info">
+      <p class="eyebrow">YOKÓ · COFFEE & MATCHA</p>
+      <h1>Encuéntranos.</h1>
+
+      <p class="contacto-intro">
+        Nos encantaría recibirte y compartir contigo
+        un momento especial. Ven a disfrutar de un
+        buen café, un delicioso matcha y un espacio
+        pensado para desconectarte de la rutina.
+      </p>
+
+      <h2>Hablemos y conectemos</h2>
+
+      <div class="contacto-enlaces">
+        <div class="contacto-dato">
+          <span>📞 TELÉFONO</span>
+          <strong>0987352058 (dato del proyecto)</strong>
+        </div>
+
+        <div class="contacto-dato">
+          <span>✉️ CORREO</span>
+          <strong>Por confirmar</strong>
+        </div>
+
+        <div class="contacto-dato">
+          <span>📷 INSTAGRAM</span>
+          <strong>Por confirmar</strong>
+        </div>
+
+        <div class="contacto-dato">
+          <span>📍 UBICACIÓN</span>
+          <strong>Por confirmar</strong>
+        </div>
+      </div>
+
+      <p class="contacto-nota">
+        YOKÓ es una marca ficticia creada para
+        un proyecto académico.
+      </p>
+    </div>
+
+    <div class="contacto-imagen">
+      <Image
+        src="/imagenes/image.png"
+        alt="Ambiente acogedor de cafetería con máquina de café"
+        width={1536}
+        height={1024}
+      />
+
+      <div class="contacto-frase">
+        Un momento de paz en cada taza.
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contacto {
+    padding: 70px 0 100px;
+  }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+  }
+
+  .contacto h1 {
+    font-size: clamp(48px, 6vw, 88px);
+    margin-bottom: 25px;
+  }
+
+  .contacto-intro {
+    font-size: 18px;
+    color: #7A6557;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .contacto h2 {
+    font-size: 38px;
+    margin-bottom: 25px;
+  }
+
+  .contacto-enlaces {
+    display: grid;
+    gap: 14px;
+  }
+
+  .contacto-dato {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px;
+    border: 1px solid #D0C8B8;
+    background: #F1ECE3;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+  }
+
+  .contacto-enlaces span {
+    color: #526943;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .contacto-enlaces strong {
+    color: #4B352A;
+    font-size: 17px;
+  }
+
+  .contacto-nota {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #7A6557;
+  }
+
+  .contacto-imagen {
+    position: relative;
+    min-width: 0;
+  }
+
+  .contacto-imagen img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .contacto-frase {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    padding: 22px;
+    background: #FAF8F3;
+    color: #4B352A;
+    border-radius: 8px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  @media (max-width: 850px) {
+    .contacto-grid {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+
+    .contacto {
+      padding: 45px 0 70px;
+    }
+
+    .contacto-imagen img {
+      height: 390px;
+    }
+  }
+</style>

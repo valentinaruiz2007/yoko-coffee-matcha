@@ -1,0 +1,70 @@
+
+---
+import '../styles/global.css';
+
+const {
+  title = 'YOKÓ — Coffee & Matcha',
+  description = 'YOKÓ Coffee & Matcha: café artesanal, matcha, brunch y repostería en un espacio acogedor donde cada taza invita a disfrutar de un momento de paz.'
+} = Astro.props;
+
+const links = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Menú', href: '/menu' },
+  { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Contacto', href: '/contacto' }
+];
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="/" aria-label="YOKÓ, ir a Inicio">
+          YOKÓ <small>COFFEE & MATCHA</small>
+        </a>
+
+        <details class="mobile-nav">
+          <summary>Menú <span aria-hidden="true">☰</span></summary>
+          <nav aria-label="Navegación móvil">
+            {links.map(link =>
+              <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>
+                {link.label}
+              </a>
+            )}
+          </nav>
+        </details>
+
+        <nav class="desktop-nav" aria-label="Navegación principal">
+          {links.map(link =>
+            <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>
+              {link.label}
+            </a>
+          )}
+        </nav>
+      </div>
+    </header>
+
+    <main><slot /></main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="brand">
+          YOKÓ <small>COFFEE & MATCHA</small>
+        </div>
+        <nav aria-label="Navegación del pie">
+          {links.map(link => <a href={link.href}>{link.label}</a>)}
+        </nav>
+        <span>Un momento de paz en cada taza.</span>
+      </div>
+    </footer>
+  </body>
+</html>

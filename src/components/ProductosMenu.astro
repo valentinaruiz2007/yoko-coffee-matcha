@@ -1,0 +1,87 @@
+
+---
+import { Image } from 'astro:assets';
+
+const productos = [
+  {
+    name: 'Matcha Latte',
+    description: 'Matcha suave combinado con leche cremosa.',
+    price: '$4.50',
+    image: 'matcha-latte.jpg',
+    alt: 'Taza de matcha latte'
+  },
+  {
+    name: 'Iced Latte',
+    description: 'Café espresso con leche y hielo.',
+    price: '$4.00',
+    image: 'iced-latte.jpg',
+    alt: 'Café con leche y hielo'
+  },
+  {
+    name: 'Cold Brew',
+    description: 'Café preparado en frío, suave y refrescante.',
+    price: '$3.75',
+    image: 'cold-brew.jpg',
+    alt: 'Café frío con hielo'
+  },
+  {
+    name: 'Strawberry Matcha',
+    description: 'Matcha con leche cremosa y un toque dulce de fresa.',
+    price: '$5.25',
+    image: 'strawberry-matcha.jpg',
+    alt: 'Matcha con leche y fresa'
+  },
+  {
+    name: 'Croissant',
+    description: 'Croissant dorado, crujiente por fuera y suave por dentro.',
+    price: '$2.75',
+    image: 'croissant.jpg',
+    alt: 'Croissant dorado'
+  },
+  {
+    name: 'Avocado Toast',
+    description: 'Pan tostado con aguacate fresco y tomates.',
+    price: '$5.50',
+    image: 'avocado-toast.jpg',
+    alt: 'Tostada con aguacate y tomates'
+  }
+];
+---
+
+<section class="section">
+  <div class="container">
+    <div class="product-grid">
+      {productos.map((p) => (
+        <article class="product-card">
+          <div class="product-image">
+            {p.image ? (
+              <Image
+                src={'/imagenes/' + p.image}
+                alt={p.alt}
+                width={326}
+                height={300}
+                loading="lazy"
+              />
+            ) : (
+              <div
+                class="no-photo"
+                aria-label="Imagen del producto no disponible"
+              >
+                YOKÓ
+              </div>
+            )}
+          </div>
+
+          <div class="product-info">
+            <h2>{p.name}</h2>
+            <span>{p.price}</span>
+          </div>
+
+          <p class="product-description">
+            {p.description}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+
+---
+import { Image } from 'astro:assets';
+
+const bebidas = [
+  {
+    nombre: 'Matcha Latte',
+    precio: '$4.50',
+    imagen: 'matcha-latte.jpg',
+    alt: 'Taza de matcha latte'
+  },
+  {
+    nombre: 'Iced Latte',
+    precio: '$4.00',
+    imagen: 'iced-latte.jpg',
+    alt: 'Café con leche y hielo'
+  },
+  {
+    nombre: 'Cold Brew',
+    precio: '$3.75',
+    imagen: 'cold-brew.jpg',
+    alt: 'Vaso de café frío con hielo'
+  },
+  {
+    nombre: 'Strawberry Matcha',
+    precio: '$5.25',
+    imagen: 'strawberry-matcha.jpg',
+    alt: 'Matcha frío con leche y fresa'
+  }
+];
+---
+
+<section class="section features" id="bebidas-destacadas">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">NUESTRA SELECCIÓN</p>
+        <h2>Bebidas destacadas</h2>
+      </div>
+
+      <a class="text-link" href="/menu">
+        Ver menú ↗
+      </a>
+    </div>
+
+    <div class="product-grid">
+      {bebidas.map((item) => (
+        <article class="product-card">
+          <div class="product-image">
+            <Image
+              src={'/imagenes/' + item.imagen}
+              alt={item.alt}
+              width={326}
+              height={300}
+              loading="lazy"
+            />
+          </div>
+
+          <div class="product-info">
+            <h3>{item.nombre}</h3>
+            <span>{item.precio}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

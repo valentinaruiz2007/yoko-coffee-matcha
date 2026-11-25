@@ -1,0 +1,15 @@
+TU PACK
+
+Fase 1 (plan):
+  plan.pdf    -> tu plan exportado a PDF (guárdalo aquí, con ese nombre)
+  fuentes/    -> tus tipografías (.woff2, .ttf...)
+  imagenes/   -> tus fotos e imágenes
+  logos/      -> tu logo y tus SVG
+
+Fase 2 (IA):
+  brief.md    -> pega el bloque "Archivo: brief.md" de la IA
+  prompts.md  -> pega el bloque "Archivo: prompts.md" de la IA
+
+Fase 3: arrastra esta carpeta "pack" dentro de tu proyecto y elige Reemplazar.
+
+Nombres de archivo sin espacios ni tildes (cafe-mesa.jpg), iguales a los del plan.
